@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>👽 Εξωγήινος Μετατροπέας (Alien Converter)</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #0d1a26;
+            color: #b3ffb3;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            text-align: center;
+        }
+
+        .container {
+            background-color: #1a334d;
+            border: 2px solid #66ff66;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 0 20px #66ff66;
+            width: 90%;
+            max-width: 450px;
+        }
+
+        h1 {
+            color: #66ff66;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        input[type="number"] {
+            width: 70%;
+            padding: 12px;
+            border: 1px solid #66ff66;
+            border-radius: 8px;
+            background-color: #0d1a26;
+            color: #b3ffb3;
+            font-size: 1em;
+            text-align: center;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        button {
+            background-color: #66ff66;
+            color: #0d1a26;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 8px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        button:hover {
+            background-color: #b3ffb3;
+            transform: scale(1.05);
+        }
+
+        .result {
+            margin-top: 25px;
+            font-size: 1.5em;
+            color: #66ff66;
+            min-height: 50px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>👽 Εξωγήινος Μετατροπέας</h1>
+    
+    <div class="input-group">
+        <label for="distanceInput">Εισαγωγή Απόστασης:</label><br>
+        <input type="number" id="distanceInput" placeholder="Εισάγετε έναν αριθμό...">
+    </div>
+    
+    <div class="buttons">
+        <button onclick="convertToMiles()">Χλμ → Μίλια</button>
+        <button onclick="convertToKilometers()">Μίλια → Χλμ</button>
+    </div>
+    
+    <div class="result" id="resultDiv"></div>
+</div>
+
+<script>
+    function convertToMiles() {
+        const kilometers = parseFloat(document.getElementById('distanceInput').value);
+        if (isNaN(kilometers)) {
+            document.getElementById('resultDiv').textContent = "👽 Εισάγετε έναν έγκυρο αριθμό.";
+            return;
+        }
+        const miles = kilometers * 0.621371;
+        document.getElementById('resultDiv').textContent = `${kilometers.toFixed(2)} χλμ = ${miles.toFixed(2)} μίλια`;
+    }
+
+    function convertToKilometers() {
+        const miles = parseFloat(document.getElementById('distanceInput').value);
+        if (isNaN(miles)) {
+            document.getElementById('resultDiv').textContent = "👽 Εισάγετε έναν έγκυρο αριθμό.";
+            return;
+        }
+        const kilometers = miles * 1.60934;
+        document.getElementById('resultDiv').textContent = `${miles.toFixed(2)} μίλια = ${kilometers.toFixed(2)} χλμ`;
+    }
+</script>
+
+</body>
+</html>
