@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="el">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>👽 Εξωγήινος Μετατροπέας (Alien Converter)</title>
+    <title>👽 Alien Converter</title>
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -80,16 +80,16 @@
 <body>
 
 <div class="container">
-    <h1>👽 Εξωγήινος Μετατροπέας</h1>
+    <h1>👽 Alien Converter</h1>
     
     <div class="input-group">
-        <label for="distanceInput">Εισαγωγή Απόστασης:</label><br>
-        <input type="number" id="distanceInput" placeholder="Εισάγετε έναν αριθμό...">
+        <label for="distanceInput">Enter Distance:</label><br>
+        <input type="number" id="distanceInput" placeholder="Enter a number...">
     </div>
     
     <div class="buttons">
-        <button onclick="convertToMiles()">Χλμ → Μίλια</button>
-        <button onclick="convertToKilometers()">Μίλια → Χλμ</button>
+        <button onclick="convertToMiles()">Km → Miles</button>
+        <button onclick="convertToKilometers()">Miles → Km</button>
     </div>
     
     <div class="result" id="resultDiv"></div>
@@ -99,21 +99,21 @@
     function convertToMiles() {
         const kilometers = parseFloat(document.getElementById('distanceInput').value);
         if (isNaN(kilometers)) {
-            document.getElementById('resultDiv').textContent = "👽 Εισάγετε έναν έγκυρο αριθμό.";
+            document.getElementById('resultDiv').textContent = "👽 Please enter a valid number.";
             return;
         }
         const miles = kilometers * 0.621371;
-        document.getElementById('resultDiv').textContent = `${kilometers.toFixed(2)} χλμ = ${miles.toFixed(2)} μίλια`;
+        document.getElementById('resultDiv').textContent = `${kilometers.toFixed(2)} km = ${miles.toFixed(2)} mi`;
     }
 
     function convertToKilometers() {
         const miles = parseFloat(document.getElementById('distanceInput').value);
         if (isNaN(miles)) {
-            document.getElementById('resultDiv').textContent = "👽 Εισάγετε έναν έγκυρο αριθμό.";
+            document.getElementById('resultDiv').textContent = "👽 Please enter a valid number.";
             return;
         }
         const kilometers = miles * 1.60934;
-        document.getElementById('resultDiv').textContent = `${miles.toFixed(2)} μίλια = ${kilometers.toFixed(2)} χλμ`;
+        document.getElementById('resultDiv').textContent = `${miles.toFixed(2)} mi = ${kilometers.toFixed(2)} km`;
     }
 </script>
 
